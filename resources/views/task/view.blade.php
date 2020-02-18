@@ -20,7 +20,7 @@ task_view->id: {{ $task_view->id }}<br>
         
 
     <div class="btn-group">
-        <a href="{{ route('task.edit', ['id' => $task_view->id ]) }}" class="btn btn-primary"> edit </a>
+        <a href="{{ route('task.edit', ['id' => $task_view->id ]) }}" class="btn btn-primary"> Edit </a>
         <a class="btn btn-default" href="{{ route('task.show') }}">Go Back</a>
     </div>
 
