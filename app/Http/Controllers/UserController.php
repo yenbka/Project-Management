@@ -47,13 +47,15 @@ class UserController extends Controller
             'name'     => 'required',
             'email'    => 'required|email|unique:users',
             'admin'    => 'required',
-            'password' => 'required'
+            'password' => 'required',
+            'permission' => 'required'
         ] ;
 
         $messages = [
             'name.required'     =>  'Enter the user full name',
             'email.required'    =>  'Enter the user email',
-            'password.required' =>  'Enter user password'
+            'password.required' =>  'Enter user password',
+            'permission.required' => 'Enter user permission'
         ] ;
 
         $this->validate($request, $rules, $messages) ;
@@ -65,6 +67,7 @@ class UserController extends Controller
             'email'    => $request->email,
             'admin'    => $request->admin,
             'password' => bcrypt($request->password) ,
+            'permission' => $request->permission,
         ]);
 
         Session::flash('success', 'User Created') ;
@@ -95,8 +98,11 @@ class UserController extends Controller
         $update_user = User::find($id) ;
         $update_user->name  = $request->name; 
         $update_user->email = $request->email;
+        $update_user->permission = $request->permission;
+        
         // update pass is available
         if ($request->has('password') ) $update_user->password = bcrypt($request->password) ;
+
         $update_user->save() ;
 
 	    // reset demo user 

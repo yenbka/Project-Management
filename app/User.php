@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'admin' ,'password',
+        'name', 'email', 'admin' ,'password', 'permission',
     ];
 
     /**
@@ -29,6 +29,15 @@ class User extends Authenticatable
 
     public function tasks() {
         return $this->hasMany('App\Task') ;
+    }
+
+    public function hasDefinePrivilege($permission)
+    {
+        if (!$permission) {
+            return false;
+        }
+
+        return $this->permission ==  $permission;
     }
 
 

@@ -18,9 +18,14 @@
     		<label>Edit Email</label>
 			<input type="text" class="form-control"  name="email" value="{{ $user->email }}">
 		</div>
-
+		
 		<div class="form-group">
 			<input type="text" class="form-control" placeholder="Update User Password (optional)" name="password">
+		</div>
+
+		<div class="form-group">
+    		<label>Edit Permission</label>
+			<input type="text" class="form-control"  name="permission" value="{{ $user->permission}}">
 		</div>
 
 	</div>

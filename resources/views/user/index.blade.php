@@ -43,6 +43,10 @@
                             <input type="text" class="form-control" placeholder="Enter User Password" name="password">
                         </div>
 
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter User Permission" name="permission">
+                        </div>
+
                 </div>
 
                 <div class="col-md-5">
