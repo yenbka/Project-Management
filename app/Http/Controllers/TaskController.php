@@ -12,6 +12,8 @@ use App\User;
 
 use Illuminate\Support\Facades\Input; 
 
+use Illuminate\Support\Facades\Auth;
+
 class TaskController extends Controller
 {
 /*===============================================
@@ -21,8 +23,9 @@ class TaskController extends Controller
     {
         // dd() ;
         // $tasks = Task::all() ;  // retrieve all Tasks
-        $users =  User::all() ; 
-        $tasks  = Task::orderBy('created_at', 'desc')->paginate(10) ;  // Paginate Tasks 
+        $users = User::all();
+        /*$users =  Task::where('user_id', Auth::user()->id)->get(); */
+        $tasks  = Task::orderBy('created_at', 'desc')->paginate(10); // Paginate Tasks 
         // dd($tasks) ;
         // pass is_overdue
         // $today = \Carbon\Carbon::now() ; // not used
@@ -30,6 +33,7 @@ class TaskController extends Controller
         return view('task.tasks')->with('tasks', $tasks) 
                                  ->with('users', $users ) ;
                                 //  ->with('today', $today) ;
+                                 
     }
 
 /*===============================================
@@ -80,12 +84,14 @@ class TaskController extends Controller
 
         // Get task created and due dates
         $from = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $task_view->created_at);
+        $start = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $task_view->startdate );
         $to   = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $task_view->duedate ); // add here the due date from create task
 
         $current_date = \Carbon\Carbon::now();
  
         // Format dates for Humans
         $formatted_from = $from->toRfc850String();  
+        $formatted_start = $start->toRfc850String();
         $formatted_to   = $to->toRfc850String();
 
         // Get Difference between current_date and duedate = days left to complete task
@@ -107,7 +113,8 @@ class TaskController extends Controller
             ->with('formatted_from', $formatted_from ) 
             ->with('formatted_to', $formatted_to )
             ->with('images_set', $images_set)
-            ->with('files_set', $files_set) ;
+            ->with('files_set', $files_set) 
+            ->with('formatted_start', $formatted_start);
     }
 
 /*===============================================
@@ -160,7 +167,8 @@ class TaskController extends Controller
                 'task'       => 'required',
                 'project_id' => 'required|numeric',
                 'photos.*'   => 'sometimes|required|mimes:png,gif,jpeg,jpg,txt,pdf,doc',  // photos is an array: photos.*
-                'duedate'    => 'required'
+                'duedate'    => 'required',
+                'startdate'  => 'required'
             ]) ;
 
             // dd($request->all() ) ;
@@ -171,7 +179,8 @@ class TaskController extends Controller
                 'task_title' => $request->task_title,
                 'task'       => $request->task,
                 'priority'   => $request->priority,
-                'duedate'    => $request->duedate
+                'startdate'  => $request->startdate,
+                'duedate'    => $request->duedate,
             ]);
 
             // Then save files using the newly created ID above
@@ -198,7 +207,6 @@ class TaskController extends Controller
                     ]);
                 }
             }
-    
             Session::flash('success', 'Task Created') ;
             return redirect()->route('task.show') ; 
         }
@@ -271,6 +279,7 @@ class TaskController extends Controller
         $update_task->project_id = $request->project_id;
         $update_task->priority   = $request->priority;
         $update_task->completed  = $request->completed;
+        $update_task->startdate    = $request->startdate;
         $update_task->duedate    = $request->duedate;
 
         if( $request->hasFile('photos') ) {

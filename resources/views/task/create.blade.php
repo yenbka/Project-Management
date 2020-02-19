@@ -61,9 +61,20 @@
             </select>
         </div>
 
+        <!--Select Start Date -->
+        <div class="form-group">
+            <label>Select Start Date <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
+            <div class='input-group date' id='datetimepicker1'>
+                <input type='text' class="form-control" name="startdate">
+                <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+
         <div class="form-group">
             <label>Select Due Date <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
-            <div class='input-group date' id='datetimepicker1'>
+            <div class='input-group date' id='datetimepicker2'>
                 <input type='text' class="form-control" name="duedate">
                 <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
@@ -98,6 +109,19 @@
 
             jQuery(function() {
                 jQuery('#datetimepicker1').datetimepicker( {
+                    defaultDate:'now',  // defaults to today
+                    format: 'YYYY-MM-DD hh:mm:ss',  // YEAR-MONTH-DAY hour:minute:seconds
+                    minDate:new Date()  // Disable previous dates, minimum is todays date
+                });
+            });
+        });
+    </script>
+
+    <script>
+        jQuery(document).ready(function() {
+
+            jQuery(function() {
+                jQuery('#datetimepicker2').datetimepicker( {
                     defaultDate:'now',  // defaults to today
                     format: 'YYYY-MM-DD hh:mm:ss',  // YEAR-MONTH-DAY hour:minute:seconds
                     minDate:new Date()  // Disable previous dates, minimum is todays date

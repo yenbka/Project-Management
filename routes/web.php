@@ -81,3 +81,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::get('/users/disable/{id}', 'UserController@disable')->name('user.disable') ;
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

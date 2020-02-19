@@ -107,6 +107,13 @@ task_view->id: {{ $task_view->id }}<br>
         </div>
     </div>
 
+     <div class="panel panel-jc">
+        <div class="panel-heading">Start Date</div>
+        <div class="panel-body">
+            {{ $formatted_start }} 
+        </div>
+    </div>
+
     <div class="panel panel-jc">
         <div class="panel-heading">Due Date</div>
         <div class="panel-body">

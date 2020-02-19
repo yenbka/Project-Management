@@ -116,11 +116,22 @@
 			</select>
 		</div>
 
+    <div class="form-group">
+            <label>Edit Start Date <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
+     
+                <div class='input-group date' id='datetimepicker1'>
+          <input type='text' class="form-control" name="startdate" value="{{ $task->startdate }}">
+          <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+        </div>
+
 
         <div class="form-group">
             <label>Edit Due Date <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
      
-                <div class='input-group date' id='datetimepicker1'>
+                <div class='input-group date' id='datetimepicker2'>
 					<input type='text' class="form-control" name="duedate" value="{{ $task->duedate }}">
 					<span class="input-group-addon">
 					<span class="glyphicon glyphicon-calendar"></span>
@@ -163,6 +174,16 @@
 		});
 
 	</script>
+
+  <script>
+
+    jQuery('#datetimepicker2').datetimepicker( {
+      defaultDate:'now',  // defaults to today
+      format: 'YYYY-MM-DD hh:mm:ss'   // YEAR-MONTH-DAY hour:minute:seconds
+      // minDate:new Date()  // Disable previous dates, minimum is todays date
+    });
+
+  </script>
 
 <script>
   var editor_config = {
