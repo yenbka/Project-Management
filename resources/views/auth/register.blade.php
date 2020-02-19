@@ -38,6 +38,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('permission') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Permission (admin or user)</label>
+
+                            <div class="col-md-6">
+                                <input id="permission" type="text" class="form-control" name="permission" value="{{ old('permission') }}" required autofocus>
+
+                                @if ($errors->has('permission'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('permission') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 

@@ -8,9 +8,6 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Login<br>
              
-                <strong>user: </strong> demo@test.com<br>
-                <strong>pass: </strong> demo2017
-            
                 </div>
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
