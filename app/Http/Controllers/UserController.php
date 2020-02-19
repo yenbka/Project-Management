@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Task; 
 use App\User;
 use App\Project; 
@@ -101,17 +102,9 @@ class UserController extends Controller
         $update_user->permission = $request->permission;
         
         // update pass is available
-        if ($request->has('password') ) $update_user->password = bcrypt($request->password) ;
+        if ($request->has('password') ) $update_user->password = bcrypt($request->password);
 
         $update_user->save() ;
-
-	    // reset demo user 
-	    $reset_demo = User::find(5) ;
-	    $reset_demo->admin = 1 ;
-	    $reset_demo->name = 'Demo User' ;
-	    $reset_demo->email = 'demo@test.com' ;
-	    $reset_demo->password = bcrypt('demo2017') ;
-	    $reset_demo->save() ;         
 
         Session::flash('success', 'User was sucessfully edited') ;
         return redirect()->route('user.index') ;
