@@ -23,8 +23,12 @@
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Enter User Permission" name="permission">
-            </div>
+			<label>Permission <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
+			<select name="permission" class="form-control">
+				<option value="admin" selected>Admin</option>
+				<option value="user">User</option>
+			</select>
+		</div>
 
 	</div>
 

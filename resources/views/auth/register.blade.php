@@ -39,17 +39,13 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('permission') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Permission (admin or user)</label>
-
-                            <div class="col-md-6">
-                                <input id="permission" type="text" class="form-control" name="permission" value="{{ old('permission') }}" required autofocus>
-
-                                @if ($errors->has('permission'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('permission') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                        <label for="name" class="col-md-4 control-label">Permission</label>
+                        <div class="col-md-6">
+                            <select name="permission" class="form-control">
+                                    <option value="admin" selected>Admin</option>
+                                    <option value="user">User</option>
+                            </select>
+                        </div>
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">

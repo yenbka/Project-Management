@@ -24,8 +24,11 @@
 		</div>
 
 		<div class="form-group">
-    		<label>Edit Permission</label>
-			<input type="text" class="form-control"  name="permission" value="{{ $user->permission}}">
+			<label>Edit Permission <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
+			<select name="permission" class="form-control" value= "{{$user->permission}}">
+				<option value="admin" selected>Admin</option>
+				<option value="user">User</option>
+			</select>
 		</div>
 
 	</div>

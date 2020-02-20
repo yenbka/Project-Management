@@ -180,7 +180,7 @@ class TaskController extends Controller
                 'task'       => $request->task,
                 'priority'   => $request->priority,
                 'startdate'  => $request->startdate,
-                'duedate'    => $request->duedate,
+                'duedate'    => $request->duedate
             ]);
 
             // Then save files using the newly created ID above
