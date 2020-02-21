@@ -19,7 +19,26 @@ Route::get('/', function () {
 	return redirect('/login') ;
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
+//Role User
+Route::group(['prefix' => 'user'], function(){
+	Route::get('/tasks','TaskUserController@index')->name('taskuser.show') ;
+
+	Route::get('/tasks/view/{id}','TaskUserController@view')->name('taskuser.view') ;
+
+	// Search view
+	Route::get('/tasks/search', 'TaskUserController@searchTask')->name('taskuser.search');
+
+
+	// Route::get('/tasks/edit/{id}', function () {	
+	// 	'uses' => 'TaskController@edit',
+	// 	'as'  => 'task.edit'
+	// });
+	Route::get('/tasks/completed/{id}','TaskUserController@completed')->name('taskuser.completed');
+
+});
+
+//Role Admin
+Route::group(['prefix' => 'admin', 'middleware' => 'is_admin'], function(){
 
 	// ===================== PROJECTS ======================
 	Route::get('/projects', 'ProjectController@index')->name('project.show');

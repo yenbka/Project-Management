@@ -40,9 +40,9 @@
                         <!-- <li><a href="#">Home</a></li>  --> 
 
                         <li>
-                            @can('permission', 'admin')
+                          
                             <a href="{{ route('user.index') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a>
-                            @endcan
+                            
                         </li>
 
                         <!--
@@ -57,9 +57,9 @@
                                                             
 
                         <li>
-                            @can('permission', 'admin')
+                            
                             <a href="{{ route('project.show') }}"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Projects</a>
-                            @endcan
+                        
                         </li>
 
                         <!--
@@ -78,9 +78,9 @@
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('task.show') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> All Tasks</a></li>
                                 <li>
-                                    @can('permission', 'admin')
+                                  
                                     <a href="{{ route('task.create') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create new Task</a>
-                                    @endcan
+                                  
                                 </li>
                             </ul>
                         </li>

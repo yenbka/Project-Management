@@ -44,5 +44,9 @@ class User extends Authenticatable
         return $this->permission ==  $permission;
     }
 
+    public function isAdmin()    {        
+        return $this->permission === 'admin';    
+    }
+
 
 }
