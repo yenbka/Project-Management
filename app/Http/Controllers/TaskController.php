@@ -144,7 +144,9 @@ class TaskController extends Controller
 ===============================================*/
     public function create()
     {
-        $projects = Project::all()  ;
+        $id = Auth::user()->id;
+        $projects = Project::where('user_id', $id)->get();
+      //  $projects = Project::all()  ;
         $users = User::all() ;
         return view('task.create')->with('projects', $projects) 
                                   ->with('users', $users) ;        

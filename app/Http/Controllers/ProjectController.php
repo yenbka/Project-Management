@@ -6,6 +6,7 @@ use Session;
 use Illuminate\Http\Request;
 use App\Project;
 use App\Task;
+use Auth;
 
 
 class ProjectController extends Controller
@@ -18,8 +19,11 @@ class ProjectController extends Controller
     public function index()
     {
         // $tasks = Task::
-        $projects = Project::all() ;
+        $id = Auth::user()->id;
+        $projects = Project::where('user_id', $id)->get();
         return view('project.projects')->with('projects', $projects) ;
+       // $projects = Project::all() ;
+       // return view('project.projects')->with('projects', $projects) ;
     }
 
     /**
@@ -41,8 +45,9 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $projects_count = Project::count() ;
       
+        $projects_count = Project::count() ;
+         
         if ( $projects_count < 10  ) {  
             
             // dd( $request->all()  ) ;
@@ -52,6 +57,8 @@ class ProjectController extends Controller
     
             $project_new = new Project;
             $project_new->project_name = $request->project;
+             $project_new->user_id = Auth::user()->id;
+           
             $project_new->save() ;
             Session::flash('success', 'Project Created') ;
             return redirect()->route('project.show') ;

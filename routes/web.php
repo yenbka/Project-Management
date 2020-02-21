@@ -19,12 +19,10 @@ Route::get('/', function () {
 	return redirect('/login') ;
 });
 
-
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
-
 	// ===================== PROJECTS ======================
-	Route::get('/projects', 'ProjectController@index')->name('project.show') ;
+	Route::get('/projects', 'ProjectController@index')->name('project.show');
 
 	Route::get('/projects/create', 'ProjectController@create')->name('project.create') ;
 
@@ -81,6 +79,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::get('/users/disable/{id}', 'UserController@disable')->name('user.disable') ;
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
