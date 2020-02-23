@@ -39,5 +39,15 @@ class User extends Authenticatable
         return $this->permission === 'admin';    
     }
 
+    public function hasDefinePrivilege($permission)
+    {
+        if (!$permission) {
+            return false;
+        }
+
+        return $this->permission ==  $permission;
+    }
+
+
 
 }

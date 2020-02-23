@@ -153,20 +153,20 @@ function validate(){
 
 
     if(name.length < 1){
-        swal("Name is required!") ;
+        swal("Name is required!", "" , "error") ;
              email.focus; 
              return false; 
     }
     
 
     if(email.length < 1){
-        swal("Email is required!") ;
+        swal("Email is required!", "" , "error") ;
              email.focus; 
              return false; 
     }
 
     if(password.length < 1){
-        swal("Password is required!") ;
+        swal("Password is required!", "" , "error") ;
              email.focus; 
              return false; 
     }

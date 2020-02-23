@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Project Task Manager - JC Web Development</title>
+        <title>Test Plan Management</title>
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
         <!-- Fonts -->
@@ -32,45 +32,27 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">PROJECT-APP</a>
+                    <a class="navbar-brand" href="/">Test Plan</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <!-- <li><a href="#">Home</a></li>  --> 
+                        
 
                         <li>
+                            @can('permission', 'admin')
                           
                             <a href="{{ route('user.index') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a>
-                            
+                            @endcan
                         </li>
-
-                        <!--
-                        <li class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Users <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{ route('user.index') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a></li>
-                                <li><a href="{{ route('user.create') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create new User</a></li>
-                            </ul>
-                        </li>
-                        -->
                                                             
 
                         <li>
-                            
+                            @can('permission', 'admin')
                             <a href="{{ route('project.show') }}"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Projects</a>
+                            @endcan
                         
                         </li>
-
-                        <!--
-                        <li class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Projects <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{ route('project.show') }}"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> All Projects</a></li>
-                                <li><a href="{{ route('project.create') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create new Project</a></li>
-                            </ul>
-                        </li>
-                        -->
 
 
                         <li class="dropdown">
@@ -78,9 +60,10 @@
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('task.show') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> All Tasks</a></li>
                                 <li>
+                                    @can('permission', 'admin')
                                   
                                     <a href="{{ route('task.create') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create new Task</a>
-                                  
+                                  @endcan
                                 </li>
                             </ul>
                         </li>
@@ -137,7 +120,7 @@
 
                     <div class="copyright">
 
-                        © 2017, JC Web Development
+                        © 2020, Test plan
 
                     </div>
 
@@ -147,7 +130,7 @@
 
                     <div class="design">
 
-                        <a target="_blank" href="http://juancadima.com">Design and Development by JC Web Development</a>
+                        <a target="_blank" href="https://github.com/yenbka/Project-Management">Development by yenbka</a>
 
                     </div>
 
