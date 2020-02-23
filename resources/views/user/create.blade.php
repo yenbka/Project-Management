@@ -4,14 +4,15 @@
 
 @include('includes.errors') 
 
-<form id="task_form" action="{{ route('user.store') }}" method="POST">
+<form name="user_form" action="{{ route('user.store') }}" method="POST" >
     {{ csrf_field() }}
 
     <div class="col-md-7">
     	<label>Create new User <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></label>
 
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Enter User Full Name" name="name" value="{{ old('name') }}">
+                <input id="name" type="text" class="form-control" placeholder="Enter User Full Name" name="name" value="{{ old('name') }}">
+
             </div>
 
             <div class="form-group">
@@ -42,7 +43,7 @@
 		</div>
 
 		<div class="btn-group">
-			<input class="btn btn-primary" type="submit" value="Submit" onclick="return validateForm()">
+			<input class="btn btn-primary" type="submit" value="Submit" onclick="return validate()">
 			<a class="btn btn-default" href="{{ redirect()->getUrlGenerator()->previous() }}">Go Back</a>
 		</div>
 
@@ -54,6 +55,7 @@
 
 @stop
 
+@section('scripts')
 
 <script>
 function validateForm() {
@@ -65,7 +67,20 @@ function validateForm() {
 		return false;
 	}
 }
+
+function validate(){
+	console.log("VALIDATE FORM CLICKED") ;
+	var name = document.forms["user_form"]["name"].value;
+
+	if ( !name.length ) {
+		swal("Task Title is required", "" , "warning") ;
+		return false;
+	}
+}
+
 </script>
+
+@stop
 
 
 

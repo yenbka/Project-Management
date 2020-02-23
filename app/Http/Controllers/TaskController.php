@@ -160,7 +160,7 @@ class TaskController extends Controller
         // dd($request->all() ) ;
         $tasks_count = Task::count() ;
         
-        if ( $tasks_count < 20  ) { 
+        if ( $tasks_count < 1000  ) { 
             // dd( $request->all()  ) ;
             // dd($request->file('photos'));
 
@@ -214,7 +214,7 @@ class TaskController extends Controller
         }
         
         else {
-            Session::flash('info', 'Please delete some tasks, Demo max tasks: 20') ;
+            Session::flash('info', 'Please delete some tasks, Demo max tasks: 1000') ;
             return redirect()->route('task.show') ;         
         }
 

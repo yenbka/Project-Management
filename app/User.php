@@ -35,15 +35,6 @@ class User extends Authenticatable
         return $this->hasMany('App\Project') ;
     }
 
-    public function hasDefinePrivilege($permission)
-    {
-        if (!$permission) {
-            return false;
-        }
-
-        return $this->permission ==  $permission;
-    }
-
     public function isAdmin()    {        
         return $this->permission === 'admin';    
     }

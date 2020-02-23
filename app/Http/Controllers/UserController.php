@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use App\Task; 
 use App\User;
 use App\Project; 
@@ -40,28 +41,13 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         // dd($request->all() ) ;
         // Validate these fields
-        $rules = [
-            'name'     => 'required',
-            'email'    => 'required|email|unique:users',
-            'admin'    => 'required',
-            'password' => 'required',
-            'permission' => 'required'
-        ] ;
-
-        $messages = [
-            'name.required'     =>  'Enter the user full name',
-            'email.required'    =>  'Enter the user email',
-            'password.required' =>  'Enter user password',
-            'permission.required' => 'Enter user permission'
-        ] ;
-
-        $this->validate($request, $rules, $messages) ;
-
         // save the user to the database
+
 
         $user = User::create([
             'name'     => $request->name,
@@ -96,6 +82,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $update_user = User::find($id) ;
         $update_user->name  = $request->name; 
         $update_user->email = $request->email;

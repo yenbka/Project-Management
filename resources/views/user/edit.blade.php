@@ -11,16 +11,16 @@
 
     	<div class="form-group">
     		<label>Edit Name</label>
-			<input type="text" class="form-control"  name="name" value="{{ $user->name }}">
+			<input type="text" class="form-control"  name="name" value="{{ $user->name }}" required>
 		</div>
 
     	<div class="form-group">
     		<label>Edit Email</label>
-			<input type="text" class="form-control"  name="email" value="{{ $user->email }}">
+			<input type="text" class="form-control"  name="email" value="{{ $user->email }}" required>
 		</div>
 		
 		<div class="form-group">
-			<input type="text" class="form-control" placeholder="Update User Password (optional)" name="password">
+			<input type="text" class="form-control" placeholder="Update User Password (optional)" name="password" required>
 		</div>
 
 		<div class="form-group">

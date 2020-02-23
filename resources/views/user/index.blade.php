@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+
 <div class="row">
     <div class="col-md-12">
         <h1>USERS</h1>
@@ -10,7 +12,7 @@
 
 
 <div class="new_project">
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add New User</button>
+  <button action="{{ route('user.create') }}" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add New User</button>
 </div>
 
 <!-- Modal -->
@@ -25,22 +27,22 @@
         </div>
 
         <div class="modal-body">
-        <form id="task_form" action="{{ route('user.store') }}" method="POST">
+        <form name="task_form" action="{{ route('user.store') }}" method="POST">
             {{ csrf_field() }}
             <div class="row">
                 <div class="col-md-7">
                     <label>Create new User <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></label>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter User Full Name" name="name" value="{{ old('name') }}">
+                            <input type="text" class="form-control" placeholder="Enter User Full Name" id="name" name="name" value="{{ old('name') }}" >
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter User Email" name="email" value="{{ old('email') }}">
+                            <input type="text" class="form-control" placeholder="Enter User Email" name="email" id="email1" value="{{ old('email') }}" >
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter User Password" name="password">
+                            <input type="text" class="form-control" placeholder="Enter User Password" id="password" name="password"  >
                         </div>
 
                         <div class="form-group">
@@ -66,16 +68,12 @@
             </div>
 
             <div class="modal-footer">
-                <input class="btn btn-primary" type="submit" value="Submit" >
+                <input class="btn btn-primary" type="submit" value="Submit" onclick="return validate()">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
-
-
         </form>
        </div>
-
     </div>
-
   </div>
 </div>
 <!--  END modal  -->
@@ -144,7 +142,56 @@ function ConfirmDelete()
     return false;
 }
 
+function validate(){
 
+    console.log("VALIDATE FORM CLICKED") ;
+    var name = document.forms["task_form"]["name"].value;
+    var email = document.forms["task_form"]["email"].value;
+    var email1 = document.getElementById('email1'); 
+    var password = document.forms["task_form"]["password"].value;
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+
+
+    if(name.length < 1){
+        swal("Name is required!") ;
+             email.focus; 
+             return false; 
+    }
+    
+
+    if(email.length < 1){
+        swal("Email is required!") ;
+             email.focus; 
+             return false; 
+    }
+
+    if(password.length < 1){
+        swal("Password is required!") ;
+             email.focus; 
+             return false; 
+    }
+
+    if(name.length < 2 || name.length > 191 ){
+        swal("The name must be at least 2 characters and not be greater than 191 characters", "" , "error") ;
+             email.focus; 
+             return false; 
+    }
+
+    if(password.length < 6){
+        swal("The password must be at least 6 characters.", "" , "error") ;
+             email.focus; 
+             return false; 
+    }
+
+    if (!filter.test(email1.value)) { 
+             swal("Email format is incorrect. Enter again!!", "" , "error") ;
+             email.focus; 
+             return false; 
+    }
+
+    return true;
+    
+}
 
 
 </script>  
