@@ -16,13 +16,13 @@
     {{ csrf_field() }}
 
     <div class="col-md-8">
-        <label>Create new task <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></label>
+        <label>@lang('message.create_new_tasks') <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></label>
 
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Enter Task Title" name="task_title">
         </div>
 
-        <label>Add Project Files (png,gif,jpeg,jpg,txt,pdf,doc) <span class="glyphicon glyphicon-file" aria-hidden="true"></span></label>
+        <label>@lang('message.add_project_files') (png,gif,jpeg,jpg,txt,pdf,doc) <span class="glyphicon glyphicon-file" aria-hidden="true"></span></label>
 		<div class="form-group">
            	<input type="file" class="form-control" name="photos[]" multiple>
        	</div>
@@ -35,7 +35,7 @@
 
     <div class="col-md-4">
         <div class="form-group">
-            <label>Assign to Project <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></label>
+            <label>@lang('message.assign_to_project') <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></label>
             <select name="project_id" class="selectpicker" data-style="btn-primary" style="width:100%;">
                 @foreach( $projects as $project )
                     <option value="{{ $project->id }}">{{ $project->project_name }}</option>
@@ -44,7 +44,7 @@
         </div>
 
         <div class="form-group">
-            <label>Assign to: <span class="glyphicon glyphicon-user" aria-hidden="true"></span></label>
+            <label>@lang('message.assign_to') <span class="glyphicon glyphicon-user" aria-hidden="true"></span></label>
             <select id="user" name="user" class="selectpicker" data-style="btn-info" style="width:100%;">
 				@foreach ( $users as $user)
 					<option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -54,16 +54,16 @@
         </div>
 
         <div class="form-group">
-            <label>Select Priority <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span></label>
+            <label>@lang('message.select_priority') <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span></label>
             <select name="priority" class="selectpicker" data-style="btn-info" style="width:100%;">
-              <option value="0">Normal</option>
-              <option value="1">High</option>
+              <option value="0">@lang('message.normal')</option>
+              <option value="1">@lang('message.high')</option>
             </select>
         </div>
 
         <!--Select Start Date -->
         <div class="form-group">
-            <label>Select Start Date <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
+            <label>@lang('message.select_start_date') <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
             <div class='input-group date' id='datetimepicker1'>
                 <input type='text' class="form-control" name="startdate">
                 <span class="input-group-addon">
@@ -73,7 +73,7 @@
         </div>
 
         <div class="form-group">
-            <label>Select Due Date <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
+            <label>@lang('message.select_due_date') <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
             <div class='input-group date' id='datetimepicker2'>
                 <input type='text' class="form-control" name="duedate">
                 <span class="input-group-addon">
@@ -83,8 +83,8 @@
         </div>
 
         <div class="btn-group">
-            <input class="btn btn-primary" type="submit" value="Submit" onclick="return validateForm()">
-            <a class="btn btn-default" href="{{ redirect()->getUrlGenerator()->previous() }}">Go Back</a>
+            <input class="btn btn-primary" type="submit" value="@lang('message.submit')" onclick="return validateForm()">
+            <a class="btn btn-default" href="{{ redirect()->getUrlGenerator()->previous() }}">@lang('message.go_back')</a>
         </div>
 
     </div>

@@ -19,8 +19,10 @@ Route::get('/', function () {
 	return redirect('/login') ;
 });
 
+
 //Role User
-Route::group(['prefix' => 'user'], function(){
+Route::group(['prefix' => 'user', 'middleware' => 'lang'], function(){ 
+
 	Route::get('/tasks','TaskUserController@index')->name('taskuser.show') ;
 
 	Route::get('/tasks/view/{id}','TaskUserController@view')->name('taskuser.view') ;
@@ -38,7 +40,7 @@ Route::group(['prefix' => 'user'], function(){
 });
 
 //Role Admin
-Route::group(['prefix' => 'admin', 'middleware' => 'is_admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => ['is_admin', 'languser']], function(){
 
 	// ===================== PROJECTS ======================
 	Route::get('/projects', 'ProjectController@index')->name('project.show');

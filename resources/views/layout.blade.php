@@ -40,32 +40,53 @@
                         
 
                         <li>
-                            @can('permission', 'admin')
                           
-                            <a href="{{ route('user.index') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a>
+                            @can('permission', 'admin')
+                        
+                            <a href="{{ route('user.index') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;@lang('message.users')</a>
                             @endcan
                         </li>
                                                             
 
                         <li>
                             @can('permission', 'admin')
-                            <a href="{{ route('project.show') }}"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Projects</a>
+                            <a href="{{ route('project.show') }}"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> @lang('message.projects')</a>
                             @endcan
                         
                         </li>
 
 
                         <li class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Tasks <b class="caret"></b></a>
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;@lang('message.tasks') <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ route('task.show') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> All Tasks</a></li>
+                                <li><a href="{{ route('task.show') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> @lang('message.all_tasks')</a></li>
                                 <li>
+                                   
                                     @can('permission', 'admin')
-                                  
-                                    <a href="{{ route('task.create') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create new Task</a>
-                                  @endcan
+                            
+                                    <a href="{{ route('task.create') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> @lang('message.create_new_tasks')</a>
+                                  @endcan 
                                 </li>
                             </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;@lang('message.language') <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{url(Request::getPathInfo().'?lang=en')}}">English</a>
+                                </li>
+
+                                <li>
+                                    <a href="{{url(Request::getPathInfo().'?lang=vi')}}">Vietnamese</a>
+                                </li>
+
+                                <li>
+                                    <a href="{{url(Request::getPathInfo().'?lang=jp')}}">Japanese</a>
+                                </li>
+                                
+                            </ul>
+                            
                         </li>
 
 
@@ -79,7 +100,7 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;{{ Auth::user()->name }}<span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">

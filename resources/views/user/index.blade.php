@@ -6,13 +6,13 @@
 
 <div class="row">
     <div class="col-md-12">
-        <h1>USERS</h1>
+        <h1>@lang('message.user_title')</h1>
     </div>
 </div>
 
 
 <div class="new_project">
-  <button action="{{ route('user.create') }}" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add New User</button>
+  <button action="{{ route('user.create') }}" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;@lang('message.button_add_user')</button>
 </div>
 
 <!-- Modal -->
@@ -23,7 +23,7 @@
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Enter User Information</h4>
+            <h4 class="modal-title">@lang('message.enter_user_info') </h4>
         </div>
 
         <div class="modal-body">
@@ -31,25 +31,25 @@
             {{ csrf_field() }}
             <div class="row">
                 <div class="col-md-7">
-                    <label>Create new User <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></label>
+                    <label>@lang('message.create_new_user') <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></label>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter User Full Name" id="name" name="name" value="{{ old('name') }}" >
+                            <input type="text" class="form-control" placeholder="@lang('message.enter_user_full_name') " id="name" name="name" value="{{ old('name') }}" >
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter User Email" name="email" id="email1" value="{{ old('email') }}" >
+                            <input type="text" class="form-control" placeholder="@lang('message.enter_user_email') " name="email" id="email1" value="{{ old('email') }}" >
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter User Password" id="password" name="password"  >
+                            <input type="text" class="form-control" placeholder="@lang('message.enter_user_pass') " id="password" name="password"  >
                         </div>
 
                         <div class="form-group">
-            <label>Permission <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
+            <label>@lang('message.permission') <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
             <select name="permission" class="form-control">
-                <option value="admin" selected>Admin</option>
-                <option value="user">User</option>
+                <option value="admin" selected>@lang('message.admin') </option>
+                <option value="user">@lang('message.user') </option>
             </select>
         </div>
 
@@ -57,10 +57,10 @@
 
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label>Set Status <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
+                        <label>@lang('message.set_status') <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
                         <select name="admin" class="form-control">
-                            <option value="0" selected>Disabled (default)</option>
-                            <option value="1">Active</option>
+                            <option value="0" selected>@lang('message.disabled') </option>
+                            <option value="1">@lang('message.active') </option>
                         </select>
                     </div>
 
@@ -85,10 +85,10 @@
 <table class="table table-striped">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Status</th>
-        <th>Actions</th>
+        <th>@lang('message.title_name')</th>
+        <th>@lang('message.title_email')</th>
+        <th>@lang('message.title_status') </th>
+        <th>@lang('message.title_action') </th>
       </tr>
     </thead>
 
@@ -104,31 +104,24 @@
     
         <td>
             @if ( !$user->admin )
-                <a href="{{ route('user.activate', ['id' => $user->id]) }}" class="btn btn-warning"> Activate User</a>
+                <a href="{{ route('user.activate', ['id' => $user->id]) }}" class="btn btn-warning">@lang('message.button_active') </a>
             @else
-                <a href="{{ route('user.disable', ['id' => $user->id]) }}" class="btn btn-warning"> Disable User</a>
-                <span class="label label-success">Active</span>
+                <a href="{{ route('user.disable', ['id' => $user->id]) }}" class="btn btn-warning"> @lang('message.button_disable')</a>
+                <span class="label label-success">@lang('message.label_active')</span>
             @endif
         </td>
         <td>
             <a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
  
             <a href="{{ route('user.delete', ['id' => $user->id]) }}" class="btn btn-danger" Onclick="return ConfirmDelete();"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-
         </td>
-      </tr>
-
+    </tr>
     @endforeach
     </tbody>
 @else 
-    <p><em>There are no users yet</em></p>
+    <p><em>@lang('message.message_no_users_yet') </em></p>
 @endif
-
-
 </table>
-
-
-
 @stop
 
 <script>

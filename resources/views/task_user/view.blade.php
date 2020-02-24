@@ -14,7 +14,7 @@ task_view->id: {{ $task_view->id }}<br>
     <h1>{{ $task_view->task_title }}</h1>
 
     <div class="form-group">
-        <label>Description:</label>
+        <label>@lang('message.description')</label>
         <p>{!! $task_view->task !!}</p>
     </div>
         
@@ -23,7 +23,7 @@ task_view->id: {{ $task_view->id }}<br>
         <!--
         <a href="{{ route('task.edit', ['id' => $task_view->id ]) }}" class="btn btn-primary" disable> Edit </a>
     -->
-        <a class="btn btn-default" href="{{ route('taskuser.show') }}">Go Back</a>
+        <a class="btn btn-default" href="{{ route('taskuser.show') }}">@lang('message.go_back')</a>
 </div>
 
     <div class="row">
@@ -32,7 +32,7 @@ task_view->id: {{ $task_view->id }}<br>
             <div class="col-md-6">
 
                 <div class="panel panel-jc">
-                    <div class="panel-heading">Uploaded Images</div>
+                    <div class="panel-heading">@lang('message.upload_files')</div>
                     <div class="panel-body">
                         <ul id="images_col">
                             @foreach ( $images_set as $image )
@@ -55,7 +55,7 @@ task_view->id: {{ $task_view->id }}<br>
             <div class="col-md-6">
 
                 <div class="panel panel-jc">
-                    <div class="panel-heading"> Uploaded Files</div>
+                    <div class="panel-heading"> @lang('message.upload_files')</div>
                     <div class="panel-body">
                         <ul id="images_col">
                             @foreach ( $files_set as $file )
@@ -81,7 +81,7 @@ task_view->id: {{ $task_view->id }}<br>
 
 
     <div class="panel panel-jc">
-        <div class="panel-heading">Project</div>
+        <div class="panel-heading">@lang('message.project_name')</div>
         <div class="panel-body">
             <span class="label label-jc">
                 <a href="{{ route('task.list', [ 'projectid' => $task_view->project->id ]) }}">{{ $task_view->project->project_name }}</a>
@@ -90,12 +90,12 @@ task_view->id: {{ $task_view->id }}<br>
     </div>
 
     <div class="panel panel-jc">
-        <div class="panel-heading">Priority</div>
+        <div class="panel-heading">@lang('message.priority')</div>
         <div class="panel-body">
             @if ( $task_view->priority == 0 )
-                <span class="label label-info">Normal</span>
+                <span class="label label-info">@lang('message.normal')</span>
             @else
-                <span class="label label-danger">High</span>
+                <span class="label label-danger">@lang('message.high')</span>
             @endif
         </div>
     </div>
@@ -103,21 +103,21 @@ task_view->id: {{ $task_view->id }}<br>
 
 
     <div class="panel panel-jc">
-        <div class="panel-heading">Created</div>
+        <div class="panel-heading">@lang('message.created_at')</div>
         <div class="panel-body">
             {{ $formatted_from }} 
         </div>
     </div>
 
      <div class="panel panel-jc">
-        <div class="panel-heading">Start Date</div>
+        <div class="panel-heading">@lang('message.start_date')</div>
         <div class="panel-body">
             {{ $formatted_start }} 
         </div>
     </div>
 
     <div class="panel panel-jc">
-        <div class="panel-heading">Due Date</div>
+        <div class="panel-heading">@lang('message.due_date')</div>
         <div class="panel-body">
             {{ $formatted_to }} 
         </div>
@@ -125,17 +125,17 @@ task_view->id: {{ $task_view->id }}<br>
 
 
     <div class="panel panel-jc">
-        <div class="panel-heading">Status</div>
+        <div class="panel-heading">@lang('message.title_status')</div>
         <div class="panel-body">
             @if ( $task_view->completed == 0 )
-                <span class="label label-warning">Open</span>
+                <span class="label label-warning">@lang('message.open')</span>
                 @if ( $is_overdue )
-                    <span class="label label-danger">Overdue</span>
+                    <span class="label label-danger">@lang('message.overdue')</span>
                 @else
-                    <p><br>{{ $diff_in_days }} days left to complete this task</p>
+                    <p><br>{{ $diff_in_days }} @lang('message.day_left_to_complete')</p>
                 @endif                
             @else
-                <span class="label label-success">Closed</span>
+                <span class="label label-success">@lang('message.closed')</span>
             @endif
         </div>
     </div>

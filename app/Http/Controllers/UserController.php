@@ -106,10 +106,12 @@ class UserController extends Controller
     public function destroy($id)
     {
         $delete_user = User::find($id) ;
+        /*
         if ( $delete_user->id == 5 ) {
 	        Session::flash('error', 'Error, demo user cant be deleted') ;
 	        return redirect()->back();
         }
+        */
         $delete_user->delete() ;
         Session::flash('success', 'User was deleted') ;
         return redirect()->back();

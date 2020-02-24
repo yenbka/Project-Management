@@ -5,13 +5,13 @@
 <!--   /views/task/task/tasks.blade.php   -->
 <div class="row">
     <div class="col-md-6">
-        <h1>ALL TASKS</h1>
+        <h1>@lang('message.title_all_tasks')</h1>
     </div>
 
     <div class="col-md-6">
         <form action="{{ route('task.search') }}" class="navbar-form" role="search" method="GET">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search in Tasks..." name="search_task">
+                <input type="text" class="form-control" placeholder="@lang('message.search_tasks')" name="search_task">
                 <span class="input-group-btn">
                     <button type="submit" class="btn btn-default">
                         <span class="glyphicon glyphicon-search">
@@ -29,12 +29,12 @@
 <table class="table table-striped">
     <thead>
       <tr>
-        <th>Created At</th>
-        <th><a href="{{ route('task.sort', [ 'key' => 'task' ]) }}">Task Title <span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span> </a></th>
-        <th>Assigned To / Project</th>
-        <th><a href="{{ route('task.sort', [ 'key' => 'priority' ]) }}">Priority <span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span> </a></th>
-        <th><a href="{{ route('task.sort', [ 'key' => 'completed' ]) }}">Status <span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span> </a></th>
-        <th>Actions</th>
+        <th>@lang('message.created_at')</th>
+        <th><a href="{{ route('task.sort', [ 'key' => 'task' ]) }}">@lang('message.task_title') <span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span> </a></th>
+        <th>@lang('message.assign_project') </th>
+        <th><a href="{{ route('task.sort', [ 'key' => 'priority' ]) }}">@lang('message.priority') <span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span> </a></th>
+        <th><a href="{{ route('task.sort', [ 'key' => 'completed' ]) }}"> @lang('message.title_status')<span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span> </a></th>
+        <th>@lang('message.actions')</th>
       </tr>
     </thead>
 
@@ -58,17 +58,17 @@
 
         <td>
             @if ( $task->priority == 0 )
-                <span class="label label-info">Normal</span>
+                <span class="label label-info">@lang('message.normal')</span>
             @else
-                <span class="label label-danger">High</span>
+                <span class="label label-danger">@lang('message.high')</span>
             @endif
         </td>
         <td>
             @if ( !$task->completed )
-                <a href="{{ route('task.completed', ['id' => $task->id]) }}" class="btn btn-warning"> Mark as completed</a>
+                <a href="{{ route('task.completed', ['id' => $task->id]) }}" class="btn btn-warning"> @lang('message.mark_as_completed')</a>
                 <span class="label label-danger">{{ ( $task->duedate < Carbon\Carbon::now() )  ? "!" : "" }}</span>
             @else
-                <span class="label label-success">Completed</span>
+                <span class="label label-success">@lang('message.completed')</span>
             @endif
   
             
@@ -89,7 +89,7 @@
 
 
 @else 
-    <p><em>There are no tasks assigned yet</em></p>
+    <p><em>@lang('message.message_no_tasks_yet')</em></p>
 @endif
 
 

@@ -10,24 +10,24 @@
     <div class="col-md-8">
 
     	<div class="form-group">
-    		<label>Edit Name</label>
+    		<label>@lang('message.edit_name') </label>
 			<input type="text" class="form-control"  name="name" value="{{ $user->name }}" required>
 		</div>
 
     	<div class="form-group">
-    		<label>Edit Email</label>
+    		<label>@lang('message.edit_email')</label>
 			<input type="text" class="form-control"  name="email" value="{{ $user->email }}" required>
 		</div>
 		
 		<div class="form-group">
-			<input type="text" class="form-control" placeholder="Update User Password (optional)" name="password" required>
+			<input type="text" class="form-control" placeholder="@lang('message.update_user_pass')" name="password">
 		</div>
 
 		<div class="form-group">
-			<label>Edit Permission <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
+			<label>@lang('message.edit_permission') <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
 			<select name="permission" class="form-control" value= "{{$user->permission}}">
-				<option value="admin" selected>Admin</option>
-				<option value="user">User</option>
+				<option value="admin" selected>@lang('message.admin')</option>
+				<option value="user">@lang('message.user')</option>
 			</select>
 		</div>
 
@@ -36,21 +36,21 @@
 	<div class="col-md-4">
 
 		<div class="form-group">
-			<label>Edit Status <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
+			<label>@lang('message.edit_status') <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
 			<select name="completed" class="form-control">
 				@if( $user->admin == 0 )
-			  		<option value="0" selected>Not Active</option>
-			  		<option value="1">Active</option>
+			  		<option value="0" selected>@lang('message.not_active')</option>
+			  		<option value="1">@lang('message.active')</option>
 			  	@else
-			  		<option value="0">Not Active</option>
-			  		<option value="1" selected>Active</option>
+			  		<option value="0">@lang('message.not_active')</option>
+			  		<option value="1" selected>@lang('message.active')</option>
 			  	@endif
 			</select>
 		</div>
 
 		<div class="btn-group">
-			<input class="btn btn-primary" type="submit" value="Submit">
-			<a class="btn btn-default" href="{{ redirect()->getUrlGenerator()->previous() }}">Go Back</a>
+			<input class="btn btn-primary" type="submit" value="@lang('message.submit')">
+			<a class="btn btn-default" href="{{ redirect()->getUrlGenerator()->previous() }}">@lang('message.go_back')</a>
 		</div>
 
 	</div>

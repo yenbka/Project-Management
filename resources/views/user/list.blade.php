@@ -2,16 +2,16 @@
 
 @section('content')
 
-<h1>Task List for:  "{{ $username->name }}" </h1>
+<h1>@lang('message.task_list_for')  "{{ $username->name }}" </h1>
 
 <table class="table table-striped">
     <thead>
       <tr>
-        <th>Task Title</th>
-        <th>Project Name</th>
-        <th>Priority</th>
-        <th>Status</th>
-        <th>Actions</th>
+        <th>@lang('message.task_title')</th>
+        <th>@lang('message.project_name')</th>
+        <th>@lang('message.priority')</th>
+        <th>@lang('message.title_status')</th>
+        <th>@lang('message.actions')</th>
       </tr>
     </thead>
 
@@ -23,16 +23,16 @@
         <td>{{ $task->project->project_name }}</td>
         <td>
             @if ( $task->priority == 0 )
-                <span class="label label-info">Normal</span>
+                <span class="label label-info">@lang('message.normal')</span>
             @else
-                <span class="label label-danger">High</span>
+                <span class="label label-danger">@lang('message.high')</span>
             @endif
         </td>
         <td>
             @if ( !$task->completed )
-                <a href="{{ route('task.completed', ['id' => $task->id]) }}" class="btn btn-warning"> Mark as completed</a>
+                <a href="{{ route('task.completed', ['id' => $task->id]) }}" class="btn btn-warning"> @lang('message.mask_as_completed')</a>
             @else
-                <span class="label label-success">Completed</span>
+                <span class="label label-success">@lang('message.completed')</span>
             @endif
         </td>
         <td>
@@ -46,7 +46,7 @@
     @endforeach
     </tbody>
 @else 
-    <p><em>There are no tasks assigned yet</em></p>
+    <p><em>@lang('message.message_no_tasks_yet')</em></p>
 @endif
 
 
@@ -55,7 +55,7 @@
 
 
 <div class="btn-group">
-    <a class="btn btn-default" href="{{ redirect()->getUrlGenerator()->previous() }}">Go Back</a>
+    <a class="btn btn-default" href="{{ redirect()->getUrlGenerator()->previous() }}">@lang('message.go_back')</a>
 </div>
 
 
