@@ -83,5 +83,9 @@ return[
 'display_results_search' => 'Displaying Results for:',
 'no_match_found' => 'No match found',
 'day_left_to_complete' => 'days left to complete this task',
+'development_by' => 'Development by',
+'en' => 'English',
+'vi' => 'Vietnamese',
+'jp' => 'Japanese',
 ];
  ?>

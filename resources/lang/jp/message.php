@@ -84,5 +84,9 @@ return[
 'display_results_search' => 'の結果を表示する:',
 'no_match_found' => '一致が見つかりません',
 'day_left_to_complete' => 'このタスクを完了するまでの残り日数',
+'development_by' => 'による開発',
+'en' => '英語',
+'vi' => 'ベトナム人',
+'jp' => '日本語',
 ];
 ?>

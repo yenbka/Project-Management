@@ -68,8 +68,8 @@
             </div>
 
             <div class="modal-footer">
-                <input class="btn btn-primary" type="submit" value="Submit" onclick="return validate()">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <input class="btn btn-primary" type="submit" value="@lang('message.submit')" onclick="return validate()">
+                <button type="button" class="btn btn-default" data-dismiss="modal">@lang('message.close')</button>
             </div>
         </form>
        </div>

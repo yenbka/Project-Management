@@ -82,5 +82,9 @@ return[
 'display_results_search' => 'Hiển thị kết quả cho:',
 'no_match_found' => 'Không tìm thấy kết quả nào',
 'day_left_to_complete' => 'ngày còn lại để hoàn thành công việc này',
+'development_by' => 'Phát triển bởi',
+'en' => 'Tiếng Anh',
+'vi' => 'Tiếng Việt',
+'jp' => 'Tiếng Nhật',
 ];
  ?>

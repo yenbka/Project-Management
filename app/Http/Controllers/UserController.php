@@ -130,11 +130,13 @@ class UserController extends Controller
     public function disable($id) {
         
         $user = User::find($id) ;
-        
+
+        /*
         if ( $user->id == 5 ) {
 	        Session::flash('error', 'Error, demo user cant be disabled') ;
 	        return redirect()->back();
         }
+        */
         $user->admin = 0;
         $user->save() ;
 

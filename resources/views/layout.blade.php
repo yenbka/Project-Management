@@ -74,15 +74,15 @@
                             <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;@lang('message.language') <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="{{url(Request::getPathInfo().'?lang=en')}}">English</a>
+                                    <a href="{{url(Request::getPathInfo().'?lang=en')}}">@lang('message.en')</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{url(Request::getPathInfo().'?lang=vi')}}">Vietnamese</a>
+                                    <a href="{{url(Request::getPathInfo().'?lang=vi')}}">@lang('message.vi')</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{url(Request::getPathInfo().'?lang=jp')}}">Japanese</a>
+                                    <a href="{{url(Request::getPathInfo().'?lang=jp')}}">@lang('message.jp')</a>
                                 </li>
                                 
                             </ul>
@@ -151,7 +151,7 @@
 
                     <div class="design">
 
-                        <a target="_blank" href="https://github.com/yenbka/Project-Management">Development by yenbka</a>
+                        <a target="_blank" href="https://github.com/yenbka/Project-Management">@lang('message.development_by') yenbka</a>
 
                     </div>
 
