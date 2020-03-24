@@ -76,7 +76,7 @@
     @endforeach
     </tbody>
 @else 
-    <p><em>There are no tasks assigned yet</em></p>
+    <p><em>@lang('message.message_no_tasks_yet')</em></p>
 @endif
 
 

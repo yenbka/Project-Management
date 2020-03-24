@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Test Plan Management</title>
+        <title>Test Management</title>
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
         <!-- Fonts -->
@@ -32,7 +32,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">Test Plan</a>
+                    <a class="navbar-brand" href="/">Test Management</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -59,6 +59,7 @@
                         <li class="dropdown">
                             <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;@lang('message.tasks') <b class="caret"></b></a>
                             <ul class="dropdown-menu">
+                                
                                 <li><a href="{{ route('task.show') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> @lang('message.all_tasks')</a></li>
                                 <li>
                                    
@@ -108,7 +109,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
-                                            Logout
+                                            @lang('message.logout')
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -141,7 +142,7 @@
 
                     <div class="copyright">
 
-                        © 2020, Test plan
+                        © 2020, Test Management
 
                     </div>
 

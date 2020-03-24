@@ -53,7 +53,6 @@
                 @endif
             @endforeach
             <span class="label label-jc">{{ $task->project->project_name }}</span>
-
         </td>
 
         <td>
@@ -69,9 +68,7 @@
                 <span class="label label-danger">{{ ( $task->duedate < Carbon\Carbon::now() )  ? "!" : "" }}</span>
             @else
                 <span class="label label-success">@lang('message.completed')</span>
-            @endif
-  
-            
+            @endif     
 
         </td>
         <td>
@@ -81,12 +78,10 @@
 
         </td>
       </tr>
-
     @endforeach
     </tbody>
 
-    {{ $tasks->links() }}
-
+    {{ $tasks->links() }} 
 
 @else 
     <p><em>@lang('message.message_no_tasks_yet')</em></p>

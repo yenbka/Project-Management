@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Session;
 use Illuminate\Http\Request;
 
+
 // import our models
 use App\Project;
 use App\Task;
@@ -24,14 +25,11 @@ class TaskController extends Controller
         // dd() ;
         // $tasks = Task::all() ;  // retrieve all Tasks
         $users = User::all();
-        /*$users =  Task::where('user_id', Auth::user()->id)->get(); */
-        $tasks  = Task::orderBy('created_at', 'desc')->paginate(10); // Paginate Tasks 
-        // dd($tasks) ;
-        // pass is_overdue
-        // $today = \Carbon\Carbon::now() ; // not used
-        // dd ($today) ;
-        return view('task.tasks')->with('tasks', $tasks) 
-                                 ->with('users', $users ) ;
+        $id = Auth::user()->id;
+        $tasks = Task::where('user_create', $id)->orderBy('created_at', 'desc')->paginate(10);
+        return view('task.tasks')->with('tasks', $tasks)
+        ->with('users', $users ) ;
+
                                 //  ->with('today', $today) ;
                                  
     }
@@ -182,7 +180,8 @@ class TaskController extends Controller
                 'task'       => $request->task,
                 'priority'   => $request->priority,
                 'startdate'  => $request->startdate,
-                'duedate'    => $request->duedate
+                'duedate'    => $request->duedate,
+                'user_create' => Auth::user($request)->id
             ]);
 
             // Then save files using the newly created ID above
