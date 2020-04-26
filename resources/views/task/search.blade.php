@@ -29,7 +29,7 @@
         </td>
         <td>
             @if ( !$task->completed )
-                <a href="{{ route('taskuser.completed', ['id' => $task->id]) }}" class="btn btn-warning"> @lang('message.mask_as_completed')</a>
+                <a href="{{ route('taskuser.completed', ['id' => $task->id]) }}" class="btn btn-warning"> @lang('message.mark_as_completed')</a>
             @else
                 <span class="label label-success">@lang('message.completed')</span>
             @endif

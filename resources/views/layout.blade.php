@@ -43,47 +43,47 @@
                           
                             @can('permission', 'admin')
                         
-                            <a href="{{ route('user.index') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;@lang('message.users')</a>
+                            <a href="{{ route('user.index') }}"><span><img src="/img/alluser.png"></span>&nbsp;@lang('message.users')</a>
                             @endcan
                         </li>
                                                             
 
                         <li>
                             @can('permission', 'admin')
-                            <a href="{{ route('project.show') }}"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> @lang('message.projects')</a>
+                            <a href="{{ route('project.show') }}"><span><img src="/img/project.png"></span>&nbsp;@lang('message.projects')</b></a>
                             @endcan
                         
                         </li>
 
 
                         <li class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;@lang('message.tasks') <b class="caret"></b></a>
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span><img src="/img/task.png"></span>&nbsp;@lang('message.tasks')<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 
-                                <li><a href="{{ route('task.show') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> @lang('message.all_tasks')</a></li>
+                                <li><a href="{{ route('task.show') }}"><img src="/img/list.png">&nbsp;@lang('message.all_tasks')</a></li>
                                 <li>
                                    
                                     @can('permission', 'admin')
                             
-                                    <a href="{{ route('task.create') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> @lang('message.create_new_tasks')</a>
+                                    <a href="{{ route('task.create') }}"><img src="/img/add.png">&nbsp;@lang('message.create_new_tasks')</a>
                                   @endcan 
                                 </li>
                             </ul>
                         </li>
 
                         <li class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;@lang('message.language') <b class="caret"></b></a>
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span><img src="/img/language.png"></span>&nbsp;@lang('message.language')<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="{{url(Request::getPathInfo().'?lang=en')}}">@lang('message.en')</a>
+                                    <a href="{{url(Request::getPathInfo().'?lang=en')}}"><img src="/img/en.png">&nbsp;@lang('message.en')</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{url(Request::getPathInfo().'?lang=vi')}}">@lang('message.vi')</a>
+                                    <a href="{{url(Request::getPathInfo().'?lang=vi')}}"><img src="/img/vn.png">&nbsp;@lang('message.vi')</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{url(Request::getPathInfo().'?lang=jp')}}">@lang('message.jp')</a>
+                                    <a href="{{url(Request::getPathInfo().'?lang=jp')}}"><img src="/img/jp.png">&nbsp;@lang('message.jp')</a>
                                 </li>
                                 
                             </ul>
@@ -101,7 +101,7 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;{{ Auth::user()->name }}<span class="caret"></span>
+                                    <span><img src="/img/user.png"></span>&nbsp;<b > {{ Auth::user()->name }}</b><span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -109,7 +109,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
-                                            @lang('message.logout')
+                                          <img src="/img/logout.png">&nbsp; @lang('message.logout')
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -142,7 +142,7 @@
 
                     <div class="copyright">
 
-                        © 2020, Test Management
+                        © 2020, Test Management 
 
                     </div>
 
@@ -152,7 +152,7 @@
 
                     <div class="design">
 
-                        <a target="_blank" href="https://github.com/yenbka/Project-Management">@lang('message.development_by') yenbka</a>
+                        <a target="_blank" href="https://github.com/yenbka/Project-Management">@lang('message.development_by') yenbka</a> 
 
                     </div>
 

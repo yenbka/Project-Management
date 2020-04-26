@@ -14,7 +14,7 @@
                 <input type="text" class="form-control" placeholder="@lang('message.search_tasks')" name="search_task">
                 <span class="input-group-btn">
                     <button type="submit" class="btn btn-default">
-                        <span class="glyphicon glyphicon-search">
+                        <span><img src="/img/search.png">
                             <span class="sr-only">Search...</span>
                         </span>
                     </button>
@@ -30,10 +30,10 @@
     <thead>
       <tr>
         <th>@lang('message.created_at')</th>
-        <th><a href="{{ route('task.sort', [ 'key' => 'task' ]) }}">@lang('message.task_title') <span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span> </a></th>
+        <th>@lang('message.task_title')</th>
         <th>@lang('message.assign_project') </th>
-        <th><a href="{{ route('task.sort', [ 'key' => 'priority' ]) }}">@lang('message.priority') <span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span> </a></th>
-        <th><a href="{{ route('task.sort', [ 'key' => 'completed' ]) }}"> @lang('message.title_status')<span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span> </a></th>
+        <th>@lang('message.priority')</th>
+        <th>@lang('message.title_status')</th>
         <th>@lang('message.actions')</th>
       </tr>
     </thead>
@@ -72,9 +72,9 @@
 
         </td>
         <td>
-            <a href="{{ route('task.view', ['id' => $task->id]) }}" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+            <a href="{{ route('task.view', ['id' => $task->id]) }}" class="btn btn-see"><span><img src="/img/see.png"></a>
             <!-- <a href="{{ route('task.edit', ['id' => $task->id]) }}" class="btn btn-primary"> edit </a>  -->
-            <a href="{{ route('task.delete', ['id' => $task->id]) }}" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+            <a href="{{ route('task.delete', ['id' => $task->id]) }}" class="btn btn-danger"><span><img src="/img/delete.png"></span></a>
 
         </td>
       </tr>

@@ -15,13 +15,13 @@
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 <body id="app">
-    <!--  /resources/views/layouts/app.blade.php -->
+    <!--
+     /resources/views/layouts/app.blade.php 
     <div >
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
+                     Collapsed Hamburger 
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
                         <span class="icon-bar"></span>
@@ -29,24 +29,24 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- Branding Image -->
+                     Branding Image 
                     <a class="navbar-brand" href="{{ url('/') }}">
-                       <img src="{{ asset('img/jc_logo_s.png') }}">
+                      <span> <img src="{{ asset('img/icon.png') }}"></span><b style="color: #fff"> Test Management</b>
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
+                    Left Side Of Navbar 
                     <ul class="nav navbar-nav">
                         &nbsp;
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    Right Side Of Navbar 
                     <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
+                         Authentication Links 
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}"><b>Login</b></a></li>
+                            <li><a href="{{ route('register') }}"><b>Register</b></a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -72,9 +72,8 @@
                 </div>
             </div>
         </nav>
-
+-->
         @yield('content')
-    </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>

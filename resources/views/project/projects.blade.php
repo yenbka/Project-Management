@@ -67,8 +67,9 @@
            <a href="{{ route('task.list', [ 'projectid' => $project->id ]) }}">@lang('message.list_all_tasks')</a>
         </td>
         <td>
-          <a class="btn btn-primary" href="{{ route('project.edit', [ 'id' => $project->id ]) }}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>          
-          <a class="btn btn-danger" href="{{ route('project.delete', [ 'id' => $project->id ]) }}" Onclick="return ConfirmDelete();"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>&nbsp;&nbsp;
+          <a class="btn btn-edit"
+          href="{{ route('project.edit', [ 'id' => $project->id ]) }}"><span><img src="/img/edit.png"></span></a>          
+          <a class="btn btn-danger" href="{{ route('project.delete', [ 'id' => $project->id ]) }}" Onclick="return ConfirmDelete();"><span><img src="/img/delete.png"></span></span></a>&nbsp;&nbsp;
         </td>
 
       </tr>
