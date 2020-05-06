@@ -7,7 +7,7 @@
 <form id="project_form" action="{{ route('project.update', [ 'id' => $edit_project->id ]) }}" method="POST">
     {{ csrf_field() }}
 
-<label>@lang('message.edit_project') <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></label>
+<label>@lang('message.edit_project') <span><img src="/img/edit.png"></span></label>
 
 <div class="row">
     <div class="col-md-8">

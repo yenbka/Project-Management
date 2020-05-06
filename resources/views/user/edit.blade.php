@@ -24,7 +24,7 @@
 		</div>
 
 		<div class="form-group">
-			<label>@lang('message.edit_permission') <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
+			<label>@lang('message.edit_permission') <span><img src="/img/permission.png"> </span></label>
 			<select name="permission" class="form-control" value= "{{$user->permission}}">
 				<option value="admin" selected>@lang('message.admin')</option>
 				<option value="user">@lang('message.user')</option>
@@ -36,7 +36,7 @@
 	<div class="col-md-4">
 
 		<div class="form-group">
-			<label>@lang('message.edit_status') <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
+			<label>@lang('message.edit_status') <span><img src="/img/status.png"></span></label>
 			<select name="completed" class="form-control">
 				@if( $user->admin == 0 )
 			  		<option value="0" selected>@lang('message.not_active')</option>

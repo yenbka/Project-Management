@@ -6,7 +6,7 @@
 <h1>@lang('message.title_project')</h1>
 
 <div class="new_project">
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;@lang('message.add_project')</button>
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><span><img src="/img/addproject.png"></span>&nbsp;@lang('message.add_project')</button>
 </div>
 
 <!-- Modal -->

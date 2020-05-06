@@ -12,7 +12,7 @@
 
 
 <div class="new_project">
-  <button action="{{ route('user.create') }}" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;@lang('message.button_add_user')</button>
+  <button action="{{ route('user.create') }}" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><span><img src="/img/adduser.png"></span>&nbsp;@lang('message.button_add_user')</button>
 </div>
 
 <!-- Modal -->
@@ -31,7 +31,7 @@
             {{ csrf_field() }}
             <div class="row">
                 <div class="col-md-7">
-                    <label>@lang('message.create_new_user') <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></label>
+                    <label>@lang('message.create_new_user') <span><img src="/img/adduser.png"></span></label>
 
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="@lang('message.enter_user_full_name') " id="name" name="name" value="{{ old('name') }}" >
@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="form-group">
-            <label>@lang('message.permission') <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
+            <label>@lang('message.permission') <span><img src="/img/permission.png"></span></label>
             <select name="permission" class="form-control">
                 <option value="admin" selected>@lang('message.admin') </option>
                 <option value="user">@lang('message.user') </option>
@@ -57,7 +57,7 @@
 
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label>@lang('message.set_status') <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
+                        <label>@lang('message.set_status') <span><img src="/img/status.png"></span></label>
                         <select name="admin" class="form-control">
                             <option value="0" selected>@lang('message.disabled') </option>
                             <option value="1">@lang('message.active') </option>
@@ -111,9 +111,9 @@
             @endif
         </td>
         <td>
-            <a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+            <a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn btn-edit"><span><img src="/img/edit.png"></span></a>
  
-            <a href="{{ route('user.delete', ['id' => $user->id]) }}" class="btn btn-danger" Onclick="return ConfirmDelete();"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+            <a href="{{ route('user.delete', ['id' => $user->id]) }}" class="btn btn-danger" Onclick="return ConfirmDelete();"><img src="/img/delete.png"></span></a>
         </td>
     </tr>
     @endforeach

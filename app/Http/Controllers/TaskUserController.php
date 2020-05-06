@@ -101,8 +101,12 @@ class TaskUserController extends Controller
 
 
     public function searchTask() {
-        $value = Input::get('search_task');
-        $tasks = Task::where('task_title', 'LIKE', '%' . $value . '%')->limit(25)->get();
+        $value = Input::get('search_task_user');
+        $id = Auth::user()->id;
+        $tasks = Task::where([
+            ['task_title', 'LIKE', '%' . $value . '%'],
+            [ 'user_id', '=', $id],
+    ])->limit(25)->get();
 
         return view('task_user.search', compact('value', 'tasks')  ) ;
     }

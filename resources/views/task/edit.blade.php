@@ -32,7 +32,7 @@
 		</div>
 
 		<div class="form-group">
-        <label>@lang('message.add_project_files') (png,gif,jpeg,jpg,txt,pdf,doc) <span class="glyphicon glyphicon-file" aria-hidden="true"></span></label>
+        <label>@lang('message.add_project_files') (png,gif,jpeg,jpg,txt,pdf,doc) <span><img src="/img/file.png"></span></label>
            	<input type="file" class="form-control" name="photos[]" multiple>
        	</div>
 
@@ -60,7 +60,7 @@
 
 
         <div class="form-group">
-			 <label>@lang('message.assign_to') <span class="glyphicon glyphicon-user" aria-hidden="true"></span></label>
+			 <label>@lang('message.assign_to') <span><img src="/img/assign.png"></span></label>
 
               <select name="user_id" id="user_id" class="form-control">
                     @foreach( $users as $user)
@@ -75,7 +75,7 @@
         </div>
 
         <div class="form-group">
-			 <label>@lang('message.assign_to_project') <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></label>
+			 <label>@lang('message.assign_to_project') <span><img src="/img/assignproject.png"></span></label>
 
               <select name="project_id" id="project_id" class="form-control">
                     @foreach( $projects as $project)
@@ -91,7 +91,7 @@
 
 	
 		<div class="form-group">
-			<label>@lang('message.edit_priority') <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span></label>
+			<label>@lang('message.edit_priority') <span><img src="/img/priority.png"></span></label>
 			<select name="priority" class="form-control">
 				@if( $task->priority == 0 )
 			  		<option value="0" selected>@lang('message.normal')</option>
@@ -104,7 +104,7 @@
 		</div>
 
 		<div class="form-group">
-			<label>@lang('message.edit_status') <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
+			<label>@lang('message.edit_status') <span><img src="/img/status.png"></span></label>
 			<select name="completed" class="form-control">
 				@if( $task->completed == 0 )
 			  		<option value="0" selected>@lang('message.not_completed')</option>
@@ -117,24 +117,25 @@
 		</div>
 
     <div class="form-group">
-            <label>@lang('message.edit_sd') <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
+            <label>@lang('message.edit_sd')</label>
      
                 <div class='input-group date' id='datetimepicker1'>
           <input type='text' class="form-control" name="startdate" value="{{ $task->startdate }}">
           <span class="input-group-addon">
-          <span class="glyphicon glyphicon-calendar"></span>
+          <span><img src="/img/calendar.png">
           </span>
         </div>
         </div>
 
 
         <div class="form-group">
-            <label>@lang('message.edit_dd') <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
+            <label>@lang('message.edit_dd')</label>
      
                 <div class='input-group date' id='datetimepicker2'>
 					<input type='text' class="form-control" name="duedate" value="{{ $task->duedate }}">
 					<span class="input-group-addon">
-					<span class="glyphicon glyphicon-calendar"></span>
+				<span><img src="/img/calendar.png">
+          </span>
 					</span>
 				</div>
         </div>

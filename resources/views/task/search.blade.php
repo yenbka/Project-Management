@@ -37,9 +37,9 @@
         <td>
          
            
-            <a href="{{ route('taskuser.view', ['id' => $task->id]) }}" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+            <a href="{{ route('taskuser.view', ['id' => $task->id]) }}" class="btn btn-primary"><span><img src="/img/see.png"> </span></a>
     
-            <a href="{{ route('task.delete', ['id' => $task->id]) }}" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+            <a href="{{ route('task.delete', ['id' => $task->id]) }}" class="btn btn-danger"><span><img src="/img/delete.png"> </span></a>
         </td>
       </tr>
 

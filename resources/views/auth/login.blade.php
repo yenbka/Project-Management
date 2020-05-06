@@ -59,7 +59,7 @@
                             </br>
                             </br>
                                 <div>
-                                    <label>If you no account, click</label> <a href="{{ route('register')}}">Sign up</a>
+                                    <label style="color: #000">If you no account, click</label> <a href="{{ route('register')}}">Sign up</a>
                                 </div>                           
                             </div>
                         </div>

@@ -7,7 +7,7 @@
 <form id="project_form" action="{{ route('project.store') }}" method="POST">
     {{ csrf_field() }}
 
-<label>Create a new Project <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></label>
+<label>Create a new Project <span><img src="/img/addproject.png"></label>
 
 <div class="row">
     <div class="col-md-8">

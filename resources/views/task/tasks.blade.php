@@ -72,7 +72,7 @@
 
         </td>
         <td>
-            <a href="{{ route('task.view', ['id' => $task->id]) }}" class="btn btn-see"><span><img src="/img/see.png"></a>
+            <a href="{{ route('task.view', ['id' => $task->id]) }}" class="btn btn-primary"><span><img src="/img/see.png"></a>
             <!-- <a href="{{ route('task.edit', ['id' => $task->id]) }}" class="btn btn-primary"> edit </a>  -->
             <a href="{{ route('task.delete', ['id' => $task->id]) }}" class="btn btn-danger"><span><img src="/img/delete.png"></span></a>
 

@@ -16,13 +16,15 @@
     {{ csrf_field() }}
 
     <div class="col-md-8">
-        <label>@lang('message.create_new_tasks') <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></label>
+        <label>@lang('message.create_new_tasks') <span><img src="/img/createtask.png">
+          </span></label>
 
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Enter Task Title" name="task_title">
         </div>
 
-        <label>@lang('message.add_project_files') (png,gif,jpeg,jpg,txt,pdf,doc) <span class="glyphicon glyphicon-file" aria-hidden="true"></span></label>
+        <label>@lang('message.add_project_files') (png,gif,jpeg,jpg,txt,pdf,doc) <span><img src="/img/file.png">
+          </span></label>
 		<div class="form-group">
            	<input type="file" class="form-control" name="photos[]" multiple>
        	</div>
@@ -35,7 +37,8 @@
 
     <div class="col-md-4">
         <div class="form-group">
-            <label>@lang('message.assign_to_project') <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></label>
+            <label>@lang('message.assign_to_project') <span><img src="/img/assignproject.png">
+          </span></label>
             <select name="project_id" class="selectpicker" data-style="btn-primary" style="width:100%;">
                 @foreach( $projects as $project )
                     <option value="{{ $project->id }}">{{ $project->project_name }}</option>
@@ -44,7 +47,8 @@
         </div>
 
         <div class="form-group">
-            <label>@lang('message.assign_to') <span class="glyphicon glyphicon-user" aria-hidden="true"></span></label>
+            <label>@lang('message.assign_to') <span><img src="/img/assign.png">
+          </span></label>
             <select id="user" name="user" class="selectpicker" data-style="btn-info" style="width:100%;">
 				@foreach ( $users as $user)
 					<option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -54,7 +58,8 @@
         </div>
 
         <div class="form-group">
-            <label>@lang('message.select_priority') <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span></label>
+            <label>@lang('message.select_priority') <span><img src="/img/priority.png">
+          </span></label>
             <select name="priority" class="selectpicker" data-style="btn-info" style="width:100%;">
               <option value="0">@lang('message.normal')</option>
               <option value="1">@lang('message.high')</option>
@@ -63,21 +68,23 @@
 
         <!--Select Start Date -->
         <div class="form-group">
-            <label>@lang('message.select_start_date') <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
+            <label>@lang('message.select_start_date')</label>
             <div class='input-group date' id='datetimepicker1'>
                 <input type='text' class="form-control" name="startdate">
                 <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
+               <span><img src="/img/calendar.png">
+          </span>
                 </span>
             </div>
         </div>
 
         <div class="form-group">
-            <label>@lang('message.select_due_date') <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
+            <label>@lang('message.select_due_date')</label>
             <div class='input-group date' id='datetimepicker2'>
                 <input type='text' class="form-control" name="duedate">
                 <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
+                <span><img src="/img/calendar.png">
+          </span>
                 </span>
             </div>
         </div>

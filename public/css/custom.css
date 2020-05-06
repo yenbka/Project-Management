@@ -67,8 +67,9 @@ ul.dropdown-menu {
 
 .panel-default {
     margin-top: 110px;
-    color: #000011;
-    border: 6px double;
+    color: #000;
+    border: 5px;
+    background-image: url("/img/bodybg.png");
 }
 
 ::placeholder { 

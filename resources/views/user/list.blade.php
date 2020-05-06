@@ -37,7 +37,7 @@
         </td>
         <td>
             <!-- <a href="{{ route('task.edit', ['id' => $task->id]) }}" class="btn btn-primary"> edit </a> -->
-            <a href="{{ route('task.view', ['id' => $task->id]) }}" class="btn btn-primary"> <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> </a>
+            <a href="{{ route('task.view', ['id' => $task->id]) }}" class="btn btn-edit"> <span><img src="/img/edit.png"></span> </a>
             <a href="{{ route('task.delete', ['id' => $task->id]) }}" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 
         </td>

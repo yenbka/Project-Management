@@ -11,7 +11,7 @@
     <div class="col-md-6">
         <form action="{{ route('taskuser.search') }}" class="navbar-form" role="search" method="GET">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="@lang('message.search_tasks')" name="search_task">
+                <input type="text" class="form-control" placeholder="@lang('message.search_tasks')" name="search_task_user">
                 <span class="input-group-btn">
                     <button type="submit" class="btn btn-default">
                         <span><img src="/img/search.png">
@@ -71,7 +71,7 @@
 
         </td>
         <td>
-            <a href="{{ route('taskuser.view', ['id' => $task->id]) }}" class="btn btn-see"><span><img src="/img/see.png"></span></a>
+            <a href="{{ route('taskuser.view', ['id' => $task->id]) }}" class="btn btn-primary"><span><img src="/img/see.png"></span></a>
             <!-- <a href="{{ route('task.edit', ['id' => $task->id]) }}" class="btn btn-primary"> edit </a>  -->
            <!-- <a href="{{ route('task.delete', ['id' => $task->id]) }}" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 -->
